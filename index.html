@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "UTF-8">
+      <title>Electon 1st Test</title>
+   </head>
+   <body>
+      <h2>Item List</h2>
+      <ul>
+         <li>Item 1</li>
+         <li>Item 2</li>
+         <li>Item 3</li>
+         <li>Item 4</li>
+         <li>Item 5</li>
+         <li>Item 6</li>
+         <li>Item 7</li>
+         <li>Item 8</li>
+         <li>Item 9</li>
+         <li>Item 10</li>
+      </ul>
+   </body>
+
+   <script>
+      
+      const electron = require('electron');
+      const {ipcRenderer} = electron;
+      
+      const document_body = document.querySelector('body');
+      const ul = document.querySelector('ul');
+
+      ipcRenderer.on('item_value',(event,item_value)=>{
+         console.log(item_value);
+         const li = document.createElement('li');
+         const itemText = document.createTextNode(item_value);
+         li.appendChild(itemText);   
+         ul.appendChild(li);
+      })
+
+      // Clear items when main.js send a clearbtn click Event
+      ipcRenderer.on('item_clear',()=>{
+         ul.innerHTML = "Cleared";
+      });
+
+      // Double click remove Item
+      ul.addEventListener('dblclick',(event)=>{
+         alert('From item: '+ event.target.innerHTML + " Removed.");
+         event.target.remove();
+      })
+
+   </script>
+
+</html>

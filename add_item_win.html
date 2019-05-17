@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>add_item_win</title>
+</head>
+
+<body>
+    <form class="add_item_form">
+        <input type="text" name="item" id="item">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+<script>
+    const electron = require('electron');
+    const {ipcRenderer} = electron;
+    const form  = document.querySelector('form.add_item_form');
+
+    form.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        const item_value = document.querySelector("#item").value;
+        ipcRenderer.send('item_value',item_value)
+        console.log(item_value);
+    });
+
+</script>
+
+</html>
