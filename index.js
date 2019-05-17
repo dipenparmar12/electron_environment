@@ -14,7 +14,6 @@ let add_item_win
 process.env.NODE_ENV = 'production';
 
 
-
 // live Refresh/Reload if any changes made.
 // require('electron-reload')(__dirname)
 

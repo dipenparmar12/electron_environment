@@ -1,18 +1,14 @@
 {
-  "name": "itemlist",
+  "name": "electrontest",
   "version": "1.0.0",
-  "repository": {
-    "type": "git"
-  },
-  "description": "Electron App for item list ",
+  "description": "electron test application with build tools ",
   "main": "index.js",
   "scripts": {
-    "start": "electron .",
-    "postinstall": "electron-builder install-app-deps",
+    "test": "test",
     "build": "electron-builder -wml",
-    "build-win": "electron-builder -w",
-    "build-mac": "electron-builder -m",
-    "build-linux": "electron-builder -l",
+    "win": "electron-builder -w",
+    "mac": "electron-builder -m",
+    "linux": "electron-builder -l",
     "dist": "build"
   },
   "build": {
@@ -23,18 +19,14 @@
       "category": "Utility"
     }
   },
-  "author": {
-    "name": "Dipen Parmar",
-    "email": "dipensavji@gmail.com",
-    "url": "https://github.com/dipenparmar12"
-  },
+  "keywords": [
+    "electronTest"
+  ],
+  "author": "dipen parmar",
   "license": "ISC",
   "devDependencies": {
     "electron": "^4.1.3",
-    "electron-builder": "^20.39.0",
+    "electron-builder": "^20.40.2",
     "electron-download-tf": "^4.3.4"
-  },
-  "dependencies": {
-    "electron-settings": "^3.2.0"
   }
 }
